@@ -28,38 +28,57 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="LabelCodigo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="LabelResponsable" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="LabelUso" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="LabelActividad" min="-2" max="-2" attributes="0"/>
+                          <Component id="LabelNombre" min="-2" max="-2" attributes="0"/>
+                          <Component id="LabelID" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="LabelCodigo" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="LabelResponsable" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="LabelUso" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="LabelActividad" min="-2" max="-2" attributes="0"/>
-                                  <Component id="LabelNombre" min="-2" max="-2" attributes="0"/>
-                                  <Component id="LabelID" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="campoID" pref="278" max="32767" attributes="0"/>
+                                  <Component id="campoCodigo" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField2" min="-2" pref="278" max="-2" attributes="0"/>
-                                  <Component id="jTextField7" min="-2" pref="278" max="-2" attributes="0"/>
-                                  <Component id="jTextField6" min="-2" pref="278" max="-2" attributes="0"/>
-                                  <Component id="jTextField5" min="-2" pref="278" max="-2" attributes="0"/>
-                                  <Component id="jTextField4" alignment="0" min="-2" pref="278" max="-2" attributes="0"/>
+                                  <Component id="campoUso" min="-2" pref="278" max="-2" attributes="0"/>
+                                  <Component id="campoResponsable" min="-2" pref="278" max="-2" attributes="0"/>
+                                  <Component id="campoAct" alignment="0" min="-2" pref="278" max="-2" attributes="0"/>
+                                  <Component id="campoNom" min="-2" pref="278" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                      <Component id="bttnCancelar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
+                      <Component id="bttnAñadir" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
+                      <Component id="bttnEliminar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
+                      <Component id="bttnActualizar" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="1307" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="LabelRecNo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="TxtRecNo" min="-2" pref="146" max="-2" attributes="0"/>
-                  </Group>
               </Group>
               <EmptySpace pref="74" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="LabelRecNo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="campoRecNo" min="-2" pref="146" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,45 +88,66 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="LabelRecNo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="TxtRecNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="campoRecNo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="LabelID" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="LabelCodigo" min="-2" max="-2" attributes="0"/>
+                          <Component id="campoCodigo" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="LabelID" min="-2" max="-2" attributes="0"/>
+                          <Component id="campoID" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                      <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="LabelNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="campoNom" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="LabelActividad" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="campoAct" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="LabelResponsable" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="campoResponsable" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="LabelUso" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="campoUso" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="483" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="29" max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="bttnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="bttnAñadir" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="483" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" pref="29" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="bttnEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="bttnActualizar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="LabelCodigo" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -118,16 +158,11 @@
         <Property name="text" type="java.lang.String" value="RecNo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtRecNo">
+    <Component class="javax.swing.JTextField" name="campoRecNo">
     </Component>
     <Component class="javax.swing.JLabel" name="LabelID">
       <Properties>
         <Property name="text" type="java.lang.String" value="ID"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="LabelCodigo">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Codigo"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="LabelNombre">
@@ -150,15 +185,15 @@
         <Property name="text" type="java.lang.String" value="Uso"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
+    <Component class="javax.swing.JTextField" name="campoID">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField4">
+    <Component class="javax.swing.JTextField" name="campoNom">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField5">
+    <Component class="javax.swing.JTextField" name="campoAct">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField6">
+    <Component class="javax.swing.JTextField" name="campoResponsable">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField7">
+    <Component class="javax.swing.JTextField" name="campoUso">
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
@@ -181,5 +216,49 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="bttnCancelar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnCancelarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="bttnA&#xf1;adir">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnA&#xf1;adirActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="bttnEliminar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Eliminar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnEliminarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="bttnActualizar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Actualizar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnActualizarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Exportar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LabelCodigo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Codigo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="campoCodigo">
+    </Component>
   </SubComponents>
 </Form>

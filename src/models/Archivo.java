@@ -89,7 +89,7 @@ public class Archivo {
     public static void eliminarArchivos(int posicion){
         archivos.remove(posicion);
     }
-    public static void ActualizarElemento(int recNo, int ID, String Codigo, String nombre, String actividad, String responsable, String uso){
+    public static void ActualizarArchivos(int recNo, int ID, String Codigo, String nombre, String actividad, String responsable, String uso){
         archivos.get(recNo).setID(ID);
         archivos.get(recNo).setCodigo(Codigo);
         archivos.get(recNo).setActividad(actividad);

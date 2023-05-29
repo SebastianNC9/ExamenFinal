@@ -1,4 +1,5 @@
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.Archivo;
 import static models.Archivo.archivos;
@@ -24,9 +25,9 @@ public class Produccion extends javax.swing.JFrame {
      */
     public Produccion() {
         initComponents();
-        this.LabelRecNo.setText("-1");
+        this.campoRecNo.setText("-1");
         this.LabelRecNo.setVisible(false);
-        this.TxtRecNo.setVisible(false);
+        this.campoRecNo.setVisible(false);
         Archivo.llenarArchivos();
         setModelo();
         setDatos();
@@ -37,22 +38,32 @@ public class Produccion extends javax.swing.JFrame {
         System.out.println("al062731@uacam.mx");
     }
         private void setModelo(){
-        String[] tblcabecera = {"ID","Codigo", "Nombre", "Actvidad","Responsable","Uso"};
+        String[] tblcabecera = {"N","ID","Codigo", "Nombre", "Actvidad","Responsable","Uso"};
         tbl.setColumnIdentifiers(tblcabecera);
         tblArchivo.setModel(tbl);
     }
         private void setDatos(){
         Object[] datos = new Object[tbl.getColumnCount()];
+        int i = 0;
         tbl.setRowCount(0);
         for (Archivo Archivo : archivos) {
-            datos[0] = Archivo.getID();
-            datos[1] = Archivo.getCodigo();
-            datos[2] = Archivo.getActividad();
+            datos[0] = i;
+            datos[1] = Archivo.getID();
+            datos[2] = Archivo.getCodigo();
             datos[3] = Archivo.getNombre();
-            datos[4]= Archivo.getResponsable();
-            datos[5]= Archivo.getUso();
+            datos[4] = Archivo.getActividad();
+            datos[5]= Archivo.getResponsable();
+            datos[6]= Archivo.getUso();
+            i++;
             tbl.addRow(datos);
         }
+    }
+        private void limpiarCampos(){
+        this.campoID.setText("");
+        this.campoNom.setText("");
+        this.campoAct.setText("");
+        this.campoResponsable.setText("");
+        this.campoUso.setText("");
     }
 
     /**
@@ -65,28 +76,32 @@ public class Produccion extends javax.swing.JFrame {
     private void initComponents() {
 
         LabelRecNo = new javax.swing.JLabel();
-        TxtRecNo = new javax.swing.JTextField();
+        campoRecNo = new javax.swing.JTextField();
         LabelID = new javax.swing.JLabel();
-        LabelCodigo = new javax.swing.JLabel();
         LabelNombre = new javax.swing.JLabel();
         LabelActividad = new javax.swing.JLabel();
         LabelResponsable = new javax.swing.JLabel();
         LabelUso = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        campoID = new javax.swing.JTextField();
+        campoNom = new javax.swing.JTextField();
+        campoAct = new javax.swing.JTextField();
+        campoResponsable = new javax.swing.JTextField();
+        campoUso = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblArchivo = new javax.swing.JTable();
+        bttnCancelar = new javax.swing.JButton();
+        bttnAñadir = new javax.swing.JButton();
+        bttnEliminar = new javax.swing.JButton();
+        bttnActualizar = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        LabelCodigo = new javax.swing.JLabel();
+        campoCodigo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         LabelRecNo.setText("RecNo");
 
         LabelID.setText("ID");
-
-        LabelCodigo.setText("Codigo");
 
         LabelNombre.setText("Nombre");
 
@@ -109,6 +124,38 @@ public class Produccion extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblArchivo);
 
+        bttnCancelar.setText("Cancelar");
+        bttnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnCancelarActionPerformed(evt);
+            }
+        });
+
+        bttnAñadir.setText("Añadir");
+        bttnAñadir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnAñadirActionPerformed(evt);
+            }
+        });
+
+        bttnEliminar.setText("Eliminar");
+        bttnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnEliminarActionPerformed(evt);
+            }
+        });
+
+        bttnActualizar.setText("Actualizar");
+        bttnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnActualizarActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("Exportar");
+
+        LabelCodigo.setText("Codigo");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,30 +165,46 @@ public class Produccion extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(91, 91, 91)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabelCodigo)
+                            .addComponent(LabelResponsable)
+                            .addComponent(LabelUso)
+                            .addComponent(LabelActividad)
+                            .addComponent(LabelNombre)
+                            .addComponent(LabelID)
+                            .addComponent(LabelCodigo))
+                        .addGap(69, 69, 69)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(campoID, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+                                    .addComponent(campoCodigo))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton5))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LabelResponsable)
-                                    .addComponent(LabelUso)
-                                    .addComponent(LabelActividad)
-                                    .addComponent(LabelNombre)
-                                    .addComponent(LabelID))
-                                .addGap(69, 69, 69)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(campoUso, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(campoResponsable, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(campoAct, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(campoNom, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addComponent(bttnCancelar)
+                        .addGap(215, 215, 215)
+                        .addComponent(bttnAñadir)
+                        .addGap(159, 159, 159)
+                        .addComponent(bttnEliminar)
+                        .addGap(107, 107, 107)
+                        .addComponent(bttnActualizar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1307, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(LabelRecNo)
-                        .addGap(18, 18, 18)
-                        .addComponent(TxtRecNo, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1307, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(74, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LabelRecNo)
+                .addGap(18, 18, 18)
+                .addComponent(campoRecNo, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,41 +212,123 @@ public class Produccion extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelRecNo)
-                    .addComponent(TxtRecNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(72, 72, 72)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(LabelID)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoRecNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(LabelCodigo)
+                            .addComponent(campoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(LabelID)
+                            .addComponent(campoID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jButton5)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelNombre))
+                    .addComponent(LabelNombre)
+                    .addComponent(campoNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelActividad)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoAct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelResponsable)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoResponsable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelUso)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(108, 108, 108)
+                    .addComponent(campoUso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bttnCancelar)
+                            .addComponent(bttnAñadir))
+                        .addGap(53, 53, 53)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 29, Short.MAX_VALUE))
+                        .addGap(18, 29, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LabelCodigo)))
-                .addGap(18, 18, 18))
+                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bttnEliminar)
+                            .addComponent(bttnActualizar))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bttnAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnAñadirActionPerformed
+        // TODO add your handling code here:
+        int recNo = Integer.parseInt(this.campoRecNo.getText().trim());
+        int ID = Integer.parseInt(this.campoID.getText().trim());
+        String Codigo = this.campoCodigo.getText();
+        String actividad = this.campoAct.getText();
+        String nombre = this.campoNom.getText();
+        String responsable = this.campoResponsable.getText();
+        String uso = this.campoUso.getText();
+        
+
+        if (recNo == -1) {
+            Archivo.insertarArchivos(ID,Codigo,nombre,actividad,responsable,uso);
+        } else {
+            
+            Archivo.ActualizarArchivos(recNo,ID,Codigo,nombre,actividad,responsable,uso);
+            this.bttnActualizar.setSelected(false);
+            
+        }
+        setDatos();
+        limpiarCampos();
+    }//GEN-LAST:event_bttnAñadirActionPerformed
+
+    private void bttnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnCancelarActionPerformed
+        // TODO add your handling code here:
+        limpiarCampos();
+    }//GEN-LAST:event_bttnCancelarActionPerformed
+
+    private void bttnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnEliminarActionPerformed
+        // TODO add your handling code here:
+        int filaActual = tblArchivo.getSelectedRow();
+        System.out.println(tblArchivo.getSelectionModel().getClass());
+        if (filaActual != -1){
+            System.out.println(filaActual);
+            //dtmMunicipios.removeRow(filaActual);
+            System.out.println(archivos);
+            Archivo.eliminarArchivos(filaActual);
+            setDatos();
+
+        }
+    }//GEN-LAST:event_bttnEliminarActionPerformed
+
+    private void bttnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnActualizarActionPerformed
+        // TODO add your handling code here:
+        int filaActual = tblArchivo.getSelectedRow();
+    
+        if (filaActual != -1) {
+        String recNo = tblArchivo.getValueAt(filaActual, 0).toString();
+        String Codigo = tblArchivo.getValueAt(filaActual, 2).toString();
+        String ID = tblArchivo.getValueAt(filaActual, 1).toString();
+        String Nombre = tblArchivo.getValueAt(filaActual, 3).toString();
+        String Actividad = tblArchivo.getValueAt(filaActual, 4).toString();
+        String Responsable = tblArchivo.getValueAt(filaActual, 5).toString();
+        String Uso = tblArchivo.getValueAt(filaActual, 6).toString();
+
+        campoRecNo.setText(recNo);
+        campoNom.setText(Nombre);
+        campoID.setText(ID);
+        campoAct.setText(Actividad);
+        campoCodigo.setText(Codigo);
+        campoUso.setText(Uso);
+        campoResponsable.setText(Responsable);
+        
+        } else {
+        JOptionPane.showMessageDialog(this, "Debe seleccionar una fila.", "Error", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_bttnActualizarActionPerformed
+} 
     /**
      * @param args the command line arguments
      */
@@ -227,13 +372,19 @@ public class Produccion extends javax.swing.JFrame {
     private javax.swing.JLabel LabelRecNo;
     private javax.swing.JLabel LabelResponsable;
     private javax.swing.JLabel LabelUso;
-    private javax.swing.JTextField TxtRecNo;
+    private javax.swing.JButton bttnActualizar;
+    private javax.swing.JButton bttnAñadir;
+    private javax.swing.JButton bttnCancelar;
+    private javax.swing.JButton bttnEliminar;
+    private javax.swing.JTextField campoAct;
+    private javax.swing.JTextField campoCodigo;
+    private javax.swing.JTextField campoID;
+    private javax.swing.JTextField campoNom;
+    private javax.swing.JTextField campoRecNo;
+    private javax.swing.JTextField campoResponsable;
+    private javax.swing.JTextField campoUso;
+    private javax.swing.JButton jButton5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTable tblArchivo;
     // End of variables declaration//GEN-END:variables
 }
