@@ -1,4 +1,7 @@
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.Archivo;
@@ -93,7 +96,7 @@ public class Produccion extends javax.swing.JFrame {
         bttnAñadir = new javax.swing.JButton();
         bttnEliminar = new javax.swing.JButton();
         bttnActualizar = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        bttnExportar = new javax.swing.JButton();
         LabelCodigo = new javax.swing.JLabel();
         campoCodigo = new javax.swing.JTextField();
 
@@ -152,7 +155,12 @@ public class Produccion extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setText("Exportar");
+        bttnExportar.setText("Exportar");
+        bttnExportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnExportarActionPerformed(evt);
+            }
+        });
 
         LabelCodigo.setText("Codigo");
 
@@ -178,7 +186,7 @@ public class Produccion extends javax.swing.JFrame {
                                     .addComponent(campoID, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
                                     .addComponent(campoCodigo))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton5))
+                                .addComponent(bttnExportar))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(campoUso, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -225,7 +233,7 @@ public class Produccion extends javax.swing.JFrame {
                             .addComponent(campoID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(53, 53, 53)
-                        .addComponent(jButton5)))
+                        .addComponent(bttnExportar)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelNombre)
@@ -328,7 +336,25 @@ public class Produccion extends javax.swing.JFrame {
         } else {
         JOptionPane.showMessageDialog(this, "Debe seleccionar una fila.", "Error", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_bttnActualizarActionPerformed
-} 
+}
+
+
+    private void bttnExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnExportarActionPerformed
+        // TODO add your handling code here:
+        System.out.println("Inicio guardar archivo");
+        File archivo = new File("C:\\Users\\sebax\\OneDrive\\Documentos\\Prueba\\Archivos.txt");
+        PrintWriter escribir;
+        try {
+            escribir = new PrintWriter(archivo);
+            for(Archivo Archivo : archivos){
+            escribir.print(Archivo.toString()+"\n");
+            }
+            escribir.close();
+        }   catch (FileNotFoundException ex){
+                java.util.logging.Logger.getLogger(Produccion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_bttnExportarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -376,6 +402,7 @@ public class Produccion extends javax.swing.JFrame {
     private javax.swing.JButton bttnAñadir;
     private javax.swing.JButton bttnCancelar;
     private javax.swing.JButton bttnEliminar;
+    private javax.swing.JButton bttnExportar;
     private javax.swing.JTextField campoAct;
     private javax.swing.JTextField campoCodigo;
     private javax.swing.JTextField campoID;
@@ -383,7 +410,6 @@ public class Produccion extends javax.swing.JFrame {
     private javax.swing.JTextField campoRecNo;
     private javax.swing.JTextField campoResponsable;
     private javax.swing.JTextField campoUso;
-    private javax.swing.JButton jButton5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblArchivo;
     // End of variables declaration//GEN-END:variables

@@ -74,8 +74,11 @@ public class Archivo {
     public void setUso(String uso) {
         this.uso = uso;
     }
+    public String toString() {
+        return "Archivo {" + "ID = " + ID + ", Codigo = " + Codigo + ", Nombre = " + nombre + ", Actividad = " + actividad + ", Responsable = " + responsable + ", Uso = " + uso +'}';
+    }
     public static void llenarArchivos(){
-           insertarArchivos(1,"FAB-000","FAB-000 FABRICACIÓN","Proceso general de fabricación de nuevos productos","GERENCIA, PRODUCCIÓN, COMPRAS, CALIDAD","planificadores");
+           insertarArchivos(1,"FAB-000","FAB-000 FABRICACIÓN","Proceso general de fabricación de nuevos productos","GERENCIA, PRODUCCIÓN, COMPRAS, CALIDAD","PLANIFICADORES");
            insertarArchivos(2,"FAB-001","FAB-001 Órdenes de producción Plan Anual","SubProceso de órdenes de producción del plan anual","FABRICACION","GERENCIA");
            insertarArchivos(3,"FAB-002","FAB-002 Órdenes de producción","SubProceso de lanzamiento de fabricación de nuevos productos","FABRICACION","PRODUCION");
            insertarArchivos(4,"FAB-002","FAB-003 Solicitud de Insumos","SubProceso de Solicitud de Insumos","FABRICACION","PRODUCION");
